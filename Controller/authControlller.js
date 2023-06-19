@@ -32,7 +32,7 @@ try{
     const user=await userDB.findOne({email:email})
     
     if(user){
-        const validity= await bcrypt.compare(password,user.password)
+        const validity=  bcrypt.compare(password,user.password)
         validity ? res.status(200).json(user):res.status(400).json("something went wrong")
         
         
